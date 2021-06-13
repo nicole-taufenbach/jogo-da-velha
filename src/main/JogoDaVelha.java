@@ -32,13 +32,13 @@ public class JogoDaVelha {
 		// 4 5 6 
 		// 7 8 9
 		// (9) Possibilidades
-		//int sorteio = jogoMapa.sortear(0,2); //0,1 | O PC vai ser 0 e o Jogador 1; //
+//		int sorteio = jogoMapa.sortear(0,2); //0,1 | O PC vai ser 0 e o Jogador 1; //
 		int sorteio = 1;
 		while (jogada <= 9) {
 			
 			if (sorteio == 1) {
 				//jogoJogador.jogar(teclado);
-				//jogoMapa.desenhar(jogada);
+//				jogoMapa.desenhar(jogada);
 				jogada++;
 			} else {
 				jogoPC.jogar();
