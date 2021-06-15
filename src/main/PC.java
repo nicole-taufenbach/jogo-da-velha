@@ -10,22 +10,21 @@ public class PC {
 	}
 
 	public boolean jogar() {
+		int linha = jogoMapa.sortear(0, 3);
+		int coluna = jogoMapa.sortear(0, 3);
+		boolean isPosicaoValida = jogoMapa.jogar(linha, coluna, letra);
 
-		//int linha = jogoMapa.sortear(0, 3);
-		//int coluna = jogoMapa.sortear(0, 3);
-		//boolean isPosicaoValida = jogoMapa.jogar(linha, coluna, letra);
+		while (!isPosicaoValida) {
+			linha = jogoMapa.sortear(0, 3);
+			coluna = jogoMapa.sortear(0, 3);
+			isPosicaoValida = jogoMapa.jogar(linha, coluna, letra);
+		}
 
-		//while (!isPosicaoValida) {
-			//int linha = jogoMapa.sortear(0, 3);
-			//int coluna = jogoMapa.sortear(0, 3);
-			//isPosicaoValida = jogoMapa.jogar(linha, coluna, letra);
-		//}
-
-		//if (jogoMapa.verificarGanhador(letra)) {
-			//System.out.println("... PC GANHOU!");
-			//return true;
-		//} else {
-				//return false;
-		return true;
+		if (jogoMapa.verificarGanhador(letra)) {
+			System.out.println("... PC GANHOU!");
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
