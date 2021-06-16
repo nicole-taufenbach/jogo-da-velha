@@ -26,23 +26,29 @@ public class JogoDaVelha {
 	}
 
 	private void jogar(Scanner teclado) {
+		boolean ganhou = false;
 		int jogada = 0;
+		int sorteio = jogoMapa.sortear(0,2); // PC = 0 || Jogador = 1
 		jogoMapa.limpar();
-		// 1 2 3 
-		// 4 5 6 
-		// 7 8 9
-		// (9) Possibilidades
-		int sorteio = jogoMapa.sortear(0,2); //0,1 | O PC vai ser 0 e o Jogador 1; //
+
 		while (jogada <= 9) {
-			
+			jogoMapa.desenhar(jogada); //Vai desenhar normalmente o mapa a cada jogada.
+
 			if (sorteio == 1) {
-				jogoJogador.jogar(teclado);
-				jogoMapa.desenhar(jogada);
+				ganhou = jogoJogador.jogar(teclado);
+				if (ganhou) {
+					jogoMapa.desenhar(jogada); // Se o jogador ganhou, imprime o mapa final e termina o laço.
+					break;
+				}
 				jogada++;
 			} else {
-				jogoPC.jogar();
-				jogoMapa.desenhar(jogada);
+				ganhou = jogoPC.jogar();
+				if (ganhou) {
+					jogoMapa.desenhar(jogada); // Mesmo funcionamento para o PC
+					break;
+				}
 				jogada++;
+				break;
 			}
 		}
 	}
