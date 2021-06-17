@@ -2,27 +2,25 @@ package main;
 
 public class Mapa {
 
-	private char[][] mapa;
+	private char[][] mapa = new char[3][3];
 
 	public int sortear(int inicio, int fim) {
 		return (int) ((Math.random() * fim) - inicio);
 	}
 
 	public void limpar() {
-		System.out.println(" ");
+		for (int l = 0; l < 3; l++)
+			for (int c = 0; c < 3; c++)
+				mapa[l][c] = ' ';
 	}
 
 	public void desenhar(int jogada) {
+		System.out.println("------------- .. jogada: " + jogada);
+		System.out.println("| " + mapa[0][0] + " | " + mapa[0][1] + " | " + mapa[0][2] + " |");
 		System.out.println("-------------");
-		for (int l = 0; l < 3; l++) {
-			for (int c = 0; c < 3; c++) {
-				System.out.println(" |" + mapa[l][c] + " | " + mapa[l][c] + " | " + mapa[l][c] + " | ");
-				System.out.println("-------------");
-				System.out.println("|" + mapa[l][c] + "|" + mapa[l][c] + " | " + mapa[l][c] + " | ");
-				System.out.println("-------------");
-				System.out.println("|" + mapa[l][c] + "|" + mapa[l][c] + " | " + mapa[l][c] + " | ");
-			}
-		}
+		System.out.println("| " + mapa[1][0] + " | " + mapa[1][1] + " | " + mapa[1][2] + " |");
+		System.out.println("-------------");
+		System.out.println("| " + mapa[2][0] + " | " + mapa[2][1] + " | " + mapa[2][2] + " |");
 		System.out.println("----------------------------");
 	}
 
@@ -40,29 +38,27 @@ public class Mapa {
 	public boolean verificarGanhador(char jogador) {
 		int jogada = 0;
 		boolean jogadorVenceu = false;
-		for (int i = 0; i < mapa.length; i++) {
-			jogada++;
-			if (mapa[0][i] == jogador && mapa[0][i] == jogador && mapa[0][i] == jogador) {
+		
+			if ((mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador) || 
+				(mapa[1][0] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador) ||
+				(mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador)) 
 				jogadorVenceu = true;
-			} else if (mapa[1][i] == jogador && mapa[1][i] == jogador && mapa[1][i] == jogador) {
-				jogadorVenceu = true;
-			} else if (mapa[2][i] == jogador && mapa[2][i] == jogador && mapa[2][i] == jogador) {
-				jogadorVenceu = true;
-			} else if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador) {
-				jogadorVenceu = true;
-			} else if (mapa[0][2] == jogador && mapa[1][1] == jogador && mapa[2][0] == jogador) {
-				jogadorVenceu = true;
-			} else if (mapa[0][i] == jogador && mapa[0][i] == jogador && mapa[0][i] == jogador) {
-				jogadorVenceu = true;
-			} else if (mapa[1][i] == jogador && mapa[1][i] == jogador && mapa[1][i] == jogador) {
-				jogadorVenceu = true;
-			} else if (mapa[2][i] == jogador && mapa[2][i] == jogador && mapa[2][i] == jogador) {
-				jogadorVenceu = true;
-			} else if (jogada == 9) {
-				System.out.println("Empate");
-				return jogadorVenceu;
-			}
+			                                        
+			if ((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[0][2] == jogador) || 
+				(mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador) ||
+				(mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador)) 
+				jogadorVenceu = true;               
+			
+			if ((mapa[0][2] == jogador && mapa[1][1] == jogador && mapa[2][0] == jogador) || 
+				(mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador)) 
+				jogadorVenceu = true;               
+			
+		jogada++;
+		if (jogada == 9) {
+			System.out.println("Empate");
+			return jogadorVenceu;
 		}
+
 		return jogadorVenceu;
 	}
 
