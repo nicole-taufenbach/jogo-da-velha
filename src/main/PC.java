@@ -20,6 +20,9 @@ public class PC {
 			isPosicaoValida = jogoMapa.jogar(linha, coluna, letra);
 		}
 
+		//PC[0,0]
+		System.out.println("PC[" + linha + "," + coluna + "]");
+		
 		if (jogoMapa.verificarGanhador(letra)) {
 			System.out.println("... PC GANHOU!");
 			return true;

@@ -19,7 +19,7 @@ public class JogoDaVelha {
 		
 		while (Character.toLowerCase(isJogarNovamente) == 's') {
 			jogar(teclado);
-			System.out.print("Deseja jogar novamente (s/n)?");
+			System.out.print("Deseja jogar novamente (s/n)? ");
 			isJogarNovamente = teclado.next().charAt(0);
 		}
 		teclado.close();
@@ -40,6 +40,7 @@ public class JogoDaVelha {
 			
 			if (jogada == 9) {
 				System.out.println("Empate");
+				break;
 			}
 			
 			jogoMapa.desenhar(jogada); //Vai desenhar normalmente o mapa a cada jogada.
