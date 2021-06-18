@@ -25,18 +25,17 @@ public class Mapa {
 	}
 
 	public boolean jogar(int l, int c, char jogador) {
-		boolean isCelulaLivre = false;
-
-		if (mapa[l][c] != 'O' || mapa[l][c] != 'X') {
-			isCelulaLivre = true;
+		boolean isCelulaValida = false;
+		
+	 if (mapa[l][c] != 'O' && mapa[l][c] != 'X') {
+			isCelulaValida = true;
 			mapa[l][c] = jogador;
 		}
-
-		return isCelulaLivre;
+	 
+		return isCelulaValida;
 	}
 
 	public boolean verificarGanhador(char jogador) {
-		int jogada = 0;
 		boolean jogadorVenceu = false;
 		
 			if ((mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador) || 
@@ -52,12 +51,6 @@ public class Mapa {
 			if ((mapa[0][2] == jogador && mapa[1][1] == jogador && mapa[2][0] == jogador) || 
 				(mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador)) 
 				jogadorVenceu = true;               
-			
-		jogada++;
-		if (jogada == 9) {
-			System.out.println("Empate");
-			return jogadorVenceu;
-		}
 
 		return jogadorVenceu;
 	}
