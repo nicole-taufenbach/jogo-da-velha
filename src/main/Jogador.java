@@ -27,8 +27,9 @@ public class Jogador {
 			isJogadaValida = false;
 		
 		while (!isJogadaValida) {
-			System.out.println(" posiÁ„o inv·lida!");
+			System.out.println(" posi√ß√£o inv√°lida!");
 			isJogadaValida = jogar(teclado);
+			break;
 		}
 
 		if (mapa.verificarGanhador(letra)) {

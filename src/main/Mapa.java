@@ -43,7 +43,7 @@ public class Mapa {
 				(mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador)) 
 				jogadorVenceu = true;
 			                                        
-			if ((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[0][2] == jogador) || 
+			if ((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador) || 
 				(mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador) ||
 				(mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador)) 
 				jogadorVenceu = true;               
