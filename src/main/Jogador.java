@@ -27,8 +27,12 @@ public class Jogador {
 			isJogadaValida = false;
 		
 		while (!isJogadaValida) {
-			System.out.println(" posição inválida!");
-			isJogadaValida = jogar(teclado);
+			System.out.println("Jogador ..");
+			System.out.print("	linha: ");
+			linha = teclado.nextInt();
+			System.out.print("	coluna: ");
+			coluna = teclado.nextInt();
+			isJogadaValida = mapa.jogar(linha, coluna, letra);
 			break;
 		}
 

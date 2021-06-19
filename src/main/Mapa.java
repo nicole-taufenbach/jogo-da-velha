@@ -30,6 +30,8 @@ public class Mapa {
 	 if (mapa[l][c] != 'O' && mapa[l][c] != 'X') {
 			isCelulaValida = true;
 			mapa[l][c] = jogador;
+		} else {
+			System.out.println("posição inválida");
 		}
 	 
 		return isCelulaValida;
