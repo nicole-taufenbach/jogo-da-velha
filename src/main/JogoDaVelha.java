@@ -39,6 +39,7 @@ public class JogoDaVelha {
 		while (jogada <= 9) {
 			
 			if (jogada == 9) {
+				jogoMapa.desenhar(jogada);
 				System.out.println("Empate");
 				break;
 			}
@@ -47,21 +48,22 @@ public class JogoDaVelha {
 			
 			if (isJogador) {
 				ganhou = jogoJogador.jogar(teclado);
+				jogada++;
 				isJogador = false;
 				if (ganhou) {
 					jogoMapa.desenhar(jogada); // Se o jogador ganhou, imprime o mapa final e termina o laço.
 					break;
 				}
-				jogada++;
+
 				
 			} else {
 				ganhou = jogoPC.jogar();
+				jogada++;
 				isJogador = true;
 				if (ganhou) {
 					jogoMapa.desenhar(jogada); // Mesmo funcionamento para o PC
 					break;
 				}
-				jogada++;
 			}
 		}
 	}
